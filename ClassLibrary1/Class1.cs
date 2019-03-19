@@ -13,7 +13,7 @@ namespace ClassLibrary1
             client.DefaultRequestHeaders.UserAgent.Clear();
             client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36");
             client.DefaultRequestHeaders.Connection.ParseAdd("keep-alive");
-            var result = client.GetByteArrayAsync("http://www.nmgp.gov.cn").Result;
+            var result = client.GetByteArrayAsync("http://www.nmgp.gov.cn").GetAwaiter().GetResult();
             var html = Encoding.UTF8.GetString(result);
             return html;
         }
